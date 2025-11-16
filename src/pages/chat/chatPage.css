@@ -1,0 +1,6 @@
+.chat-page {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20%;
+  min-height: 70dvh;
+}

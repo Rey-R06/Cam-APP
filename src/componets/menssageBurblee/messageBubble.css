@@ -1,0 +1,52 @@
+@import "/src/styles/colors.module.css";
+
+/* ESTILO BASE DE TODAS LAS BURBUJAS */
+.bubble {
+  max-width: 75%;
+  width: fit-content;
+  padding: 10px 14px;
+  margin: 6px 0;
+  border-radius: 14px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  position: relative;
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+
+  /* sombra ligera para que se vea elevado */
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* 🔵 Mensaje del OTRO (izquierda) */
+.other {
+  background: var(--other-msg);
+  color: #fff;
+  margin-right: auto;
+  border-bottom-left-radius: 3px;
+}
+
+/* 🟩 Mi mensaje (derecha) */
+.mine {
+  background: var(--my-msg);
+  color: #fff;
+  margin-left: auto;
+  border-bottom-right-radius: 3px;
+}
+
+/* Efecto de entrada (suave) */
+.bubble {
+  animation: bubblePop 0.15s ease-out;
+}
+
+@keyframes bubblePop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

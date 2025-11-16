@@ -1,0 +1,9 @@
+.chat-window {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
