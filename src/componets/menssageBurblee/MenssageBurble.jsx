@@ -1,4 +1,4 @@
-import "./MessageBubble.css"
+import "./messageBubble.css"
 
 export const MessageBubble = ({ text, mine }) => {
   return (
