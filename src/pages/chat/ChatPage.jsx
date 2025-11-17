@@ -10,8 +10,19 @@ import { ref, onValue, push } from "firebase/database";
 import "./chatPage.css";
 
 export default function ChatPage() {
-  const myUserId = 1;
   const chatId = "chat1";
+
+  // 🟣 Crear o leer userId desde localStorage
+  const [myUserId] = useState(() => {
+    let storedId = localStorage.getItem("userId");
+
+    if (!storedId) {
+      storedId = "user-" + Date.now() + "-" + Math.floor(Math.random() * 1000);
+      localStorage.setItem("userId", storedId);
+    }
+
+    return storedId;
+  });
 
   const [messages, setMessages] = useState([]);
 
@@ -33,7 +44,7 @@ export default function ChatPage() {
     return () => unsubscribe();
   }, []);
 
-  // 🟢 Enviar mensaje a Firebase
+  // 🟢 Enviar mensaje
   const handleSend = (text) => {
     const messagesRef = ref(db, `private/${chatId}`);
 
@@ -48,7 +59,7 @@ export default function ChatPage() {
     <>
       <NavBar />
       <main className="chat-page">
-        <ChatHeader name="Camilo" online={true} />
+        <ChatHeader name="Chat Privado" online={true} />
         <ChatWindow messages={messages} myUserId={myUserId} />
         <MessageInput onSend={handleSend} />
       </main>
