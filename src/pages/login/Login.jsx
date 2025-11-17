@@ -24,7 +24,7 @@ export default function Login() {
 
         <input
           type="text"
-          placeholder="Tu nombre de usuario..."
+          placeholder="Ingresa la clave..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           onKeyDown={handleKey}

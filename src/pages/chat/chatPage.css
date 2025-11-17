@@ -4,3 +4,10 @@
   margin: 0 20%;
   min-height: 70dvh;
 }
+
+@media (max-width: 500px) {
+  .chat-page {
+  margin: 0 0;
+  min-height: 90dvh;
+  }
+}
