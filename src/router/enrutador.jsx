@@ -7,7 +7,7 @@ export let enrutador = [
         element: <Login />
     },
     {
-        path: "/chat",
+        path: "/chat-privado",
         element: <ChatPage />
     }
 ]

@@ -3,19 +3,25 @@ import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
+  const [clave, setClave] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (!username.trim()) return;
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-    localStorage.setItem("user", username);
-    navigate("/chat");
+    // 🔒 Claves para acceder
+    const CLAVE_GRUPAL = "grupal123";
+    const CLAVE_PRIVADA = "privado123";
+
+    if (clave === CLAVE_GRUPAL) {
+      navigate("/chat-grupal");
+    } else if (clave === CLAVE_PRIVADA) {
+      navigate("/chat-privado");
+    } else {
+      alert("Clave incorrecta");
+    }
   };
 
-  const handleKey = (e) => {
-    if (e.key === "Enter") handleLogin();
-  };
 
   return (
     <div className="login-page">
@@ -25,9 +31,8 @@ export default function Login() {
         <input
           type="text"
           placeholder="Ingresa la clave..."
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          onKeyDown={handleKey}
+          value={clave}
+          onChange={(e) => setClave(e.target.value)}
         />
 
         <button onClick={handleLogin}>Entrar</button>
