@@ -1,10 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import ChatPage from './pages/chat/ChatPage'
+import { enrutador } from './router/enrutador'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ChatPage />
+     <RouterProvider router={createBrowserRouter(enrutador)} />
   </StrictMode>,
 )

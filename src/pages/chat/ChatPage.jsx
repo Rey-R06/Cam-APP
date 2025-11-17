@@ -1,31 +1,57 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "../../componets/Navbar/NavBar";
 import ChatHeader from "../../componets/chatHeader/ChatHeader";
 import ChatWindow from "../../componets/chatWindow/ChatWindow";
 import MessageInput from "../../componets/menssageInput/MenssageInput";
 
-import "./chatPage.css"
+import { db } from "../../firebase/firebase";
+import { ref, onValue, push } from "firebase/database";
+
+import "./chatPage.css";
 
 export default function ChatPage() {
-  const myUserId = 1; // ID del usuario que está usando esta pantalla (provisional)
+  const myUserId = 1;
+  const chatId = "chat1";
 
-  const [messages, setMessages] = useState([
-    { text: "Hola, ¿cómo estás?", userId: 2 },
-    { text: "Todo bien, ¿y tú?", userId: 1 }
-  ]);
+  const [messages, setMessages] = useState([]);
 
+  // 🟡 Escuchar mensajes en tiempo real
+  useEffect(() => {
+    const messagesRef = ref(db, `private/${chatId}`);
+
+    const unsubscribe = onValue(messagesRef, (snapshot) => {
+      const data = snapshot.val();
+      if (!data) {
+        setMessages([]);
+        return;
+      }
+
+      const loadedMessages = Object.values(data);
+      setMessages(loadedMessages);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  // 🟢 Enviar mensaje a Firebase
   const handleSend = (text) => {
-    setMessages([...messages, { text, userId: myUserId }]);
+    const messagesRef = ref(db, `private/${chatId}`);
+
+    push(messagesRef, {
+      text,
+      userId: myUserId,
+      timestamp: Date.now(),
+    });
   };
 
   return (
     <>
-    <NavBar />
-    <main className="chat-page">
-      <ChatHeader name="Camilo" online={true} />
-      <ChatWindow messages={messages} myUserId={myUserId} />
-      <MessageInput onSend={handleSend} />
-    </main>
+      <NavBar />
+      <main className="chat-page">
+        <ChatHeader name="Camilo" online={true} />
+        <ChatWindow messages={messages} myUserId={myUserId} />
+        <MessageInput onSend={handleSend} />
+      </main>
     </>
   );
-};
+}

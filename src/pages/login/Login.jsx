@@ -1,16 +1,37 @@
-import NavBar from "../../componets/Navbar/NavBar"
-import { MessageList } from "../../componets/messageList/MessageList";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./login.css";
 
 export default function Login() {
-  const mensajes = [
-    { text: "Hola Camilo, ¿cómo vas?", mine: false },
-    { text: "Todo bien, ¿y tú?", mine: true },
-    { text: "Bien también. ¿Ya avanzaste con el proyecto?", mine: false }
-  ];
+  const [username, setUsername] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    if (!username.trim()) return;
+
+    localStorage.setItem("user", username);
+    navigate("/chat");
+  };
+
+  const handleKey = (e) => {
+    if (e.key === "Enter") handleLogin();
+  };
+
   return (
-    <>
-    <NavBar />
-    <MessageList messages={mensajes} />
-    </>
-  )
+    <div className="login-page">
+      <div className="login-box">
+        <h2>Cam-Talk</h2>
+
+        <input
+          type="text"
+          placeholder="Tu nombre de usuario..."
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          onKeyDown={handleKey}
+        />
+
+        <button onClick={handleLogin}>Entrar</button>
+      </div>
+    </div>
+  );
 }
