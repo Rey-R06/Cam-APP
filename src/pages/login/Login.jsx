@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  alertaClaveIncorrecta,
+  alertaRedireccion,
+} from "../../helpers/funciones";
 import "./login.css";
 
 export default function Login() {
@@ -16,12 +20,16 @@ export default function Login() {
     if (clave === CLAVE_GRUPAL) {
       navigate("/chat-grupal");
     } else if (clave === CLAVE_PRIVADA) {
-      navigate("/chat-privado");
+      alertaRedireccion(
+        "Clave correcta",
+        "Entrando al chat privado...",
+        2000,
+        "/chat-privado"
+      );
     } else {
-      alert("Clave incorrecta");
+      alertaClaveIncorrecta();
     }
   };
-
 
   return (
     <div className="login-page">
