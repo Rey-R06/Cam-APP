@@ -48,7 +48,7 @@ export const alertaClaveIncorrecta = () => {
 };
 
 // 🔄 Alerta con redirección automática
-export const alertaRedireccion = (titulo, mensaje, tiempo = 2000, direccion) => {
+export const alertaRedireccion = (titulo, mensaje, tiempo = 2000) => {
   Swal.fire({
     icon: "info",
     title: titulo,
@@ -57,8 +57,4 @@ export const alertaRedireccion = (titulo, mensaje, tiempo = 2000, direccion) => 
     timerProgressBar: true,
     showConfirmButton: false,
   });
-
-  setTimeout(() => {
-    window.location.href = direccion;
-  }, tiempo);
 };

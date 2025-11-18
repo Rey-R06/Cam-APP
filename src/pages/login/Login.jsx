@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { alertaClaveIncorrecta, alertaRedireccion } from "../../helpers/funciones";
+import {
+  alertaClaveIncorrecta,
+  alertaRedireccion,
+} from "../../helpers/funciones";
 import "./login.css";
 
 export default function Login() {
@@ -17,12 +20,10 @@ export default function Login() {
     if (clave === CLAVE_GRUPAL) {
       navigate("/chat-grupal");
     } else if (clave === CLAVE_PRIVADA) {
-      alertaRedireccion(
-        "Clave correcta",
-        "Entrando al chat privado...",
-        2000,
-        "/chat-privado"
-      );
+      alertaRedireccion("Clave correcta", "Entrando al chat privado...", 2000);
+      setTimeout(() => {
+        navigate("/chat-privado");
+      }, 2000);
     } else {
       alertaClaveIncorrecta();
     }
