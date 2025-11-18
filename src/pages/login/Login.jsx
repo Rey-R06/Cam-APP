@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  alertaClaveIncorrecta,
-  alertaRedireccion,
-} from "../../helpers/funciones";
+import { alertaClaveIncorrecta, alertaRedireccion } from "../../helpers/funciones";
 import "./login.css";
 
 export default function Login() {
