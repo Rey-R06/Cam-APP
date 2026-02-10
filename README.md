@@ -37,7 +37,7 @@ Construir una aplicación de chat que permita:
 
 ## Estado del proyecto
 
-- Conexión a servicio de mensajería implementada
+- Conexión a servicio de mensajería implementada(Actualmente desactivado)
 - Envío y recepción de mensajes funcional
 - Interfaz de usuario en desarrollo
 - Backend propio no implementado
