@@ -39,3 +39,30 @@ Construir una aplicación de chat que permita:
 
 Arquitectura por capas:
 
+
+- Controller: manejo de endpoints REST
+- Service: lógica de negocio
+- Repository: acceso a datos con JPA
+- Model: entidades y relaciones
+- Validation: validación de datos de entrada
+
+---
+
+## Estado del proyecto
+
+### Backend
+- Proyecto creado con Spring Initializr
+- Dependencias configuradas
+- Estructura base definida
+- Validaciones activas
+- Modelos en desarrollo
+
+### Frontend
+- Pendiente de implementación
+
+---
+
+## Ejecución del backend
+
+```bash
+mvn spring-boot:run
