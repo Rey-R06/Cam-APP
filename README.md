@@ -1,34 +1,108 @@
-# 📸 Cam-APP
+💬 Cam-APP – Chat Privado
 
-**Cam-APP** es una aplicación web frontend desarrollada con **React + Vite**, pensada como base para proyectos relacionados con cámaras, captura de imágenes, video o interfaces multimedia en el navegador.
+Cam-APP es una aplicación de mensajería privada desarrollada con Spring Boot en el backend y React en el frontend.
+El proyecto está orientado a la práctica de desarrollo full stack, aplicando buenas prácticas y una arquitectura escalable.
 
-El objetivo del proyecto es servir como **plantilla ligera y extensible**, ideal para experimentar con APIs de cámara, streaming, WebRTC o integraciones futuras con backend.
+🎯 Objetivo del proyecto
 
----
+Desarrollar un sistema de chat que permita:
 
-## 🚀 Tecnologías utilizadas
+Registro e inicio de sesión de usuarios
 
-- ⚛️ **React**
-- ⚡ **Vite**
-- 🟨 **JavaScript**
-- 🌐 **HTML**
-- 🎨 **CSS**
+Envío y recepción de mensajes privados
 
----
+Comunicación segura entre usuarios
 
-## 🧠 Descripción del proyecto
+Base sólida para implementar mensajería en tiempo real
 
-Cam-APP proporciona una estructura inicial moderna para aplicaciones frontend que requieren alto rendimiento y rápida recarga durante el desarrollo.
+🛠️ Tecnologías utilizadas
+Backend
 
-Actualmente, el proyecto se enfoca en la base visual y estructural, dejando abierta la posibilidad de implementar funcionalidades como:
+Java 17+
 
-- Uso de cámara web
-- Captura de imágenes
-- Grabación de video
-- Streaming en tiempo real
-- Comunicación con un backend
+Spring Boot
 
----
+Spring Web
 
-## 📂 Estructura del proyecto
+Spring Data JPA
 
+Spring Validation
+
+Maven
+
+Base de datos relacional (MySQL / PostgreSQL)
+
+Frontend
+
+React
+
+Vite
+
+JavaScript (ES6+)
+
+CSS
+
+Fetch API
+
+🏗️ Arquitectura Backend
+
+El backend está organizado en una arquitectura por capas:
+
+Controller → Service → Repository → Model
+
+Capas
+
+Controller: Manejo de peticiones HTTP (REST)
+
+Service: Lógica de negocio
+
+Repository: Acceso a datos mediante JPA
+
+Model (Entities): Representación de las tablas
+
+Validation: Validación de datos de entrada
+
+📦 Estado actual del proyecto
+Backend
+
+Proyecto inicializado con Spring Initializr
+
+Dependencias configuradas
+
+Estructura base del proyecto creada
+
+Validaciones activas
+
+Modelos en desarrollo
+
+Frontend
+
+Pendiente de implementación
+
+🚀 Ejecución del backend
+mvn spring-boot:run
+
+
+Antes de ejecutar, configurar:
+
+Base de datos
+
+Credenciales en application.properties
+
+Variables de entorno necesarias
+
+🔜 Próximos pasos
+
+Crear modelos: User, Chat y Message
+
+Implementar endpoints REST
+
+Agregar autenticación (JWT)
+
+Implementar mensajería en tiempo real (WebSockets)
+
+Desarrollo del frontend con React
+
+📚 Nota
+
+Este proyecto tiene fines educativos y prácticos, enfocado en reforzar conceptos de desarrollo backend y frontend moderno.
