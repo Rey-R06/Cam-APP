@@ -1,186 +1,34 @@
-# 💬 Chat Privado – Spring Boot + React
+# 📸 Cam-APP
 
-Proyecto en desarrollo de un **chat privado en tiempo real**, con backend en **Spring Boot** y frontend en **React**. El sistema está pensado para crecer por fases y terminar siendo una aplicación tipo WhatsApp / Messenger.
+**Cam-APP** es una aplicación web frontend desarrollada con **React + Vite**, pensada como base para proyectos relacionados con cámaras, captura de imágenes, video o interfaces multimedia en el navegador.
 
----
-
-## 🚧 Estado del proyecto
-
-**FASE ACTUAL:** 🟩 Fase 1 – Backend base (en progreso)
-
-Hasta el momento se ha trabajado en:
-
-* Creación del proyecto con **Spring Initializr**
-* Configuración inicial del backend
-* Modelado de las entidades principales (Models)
+El objetivo del proyecto es servir como **plantilla ligera y extensible**, ideal para experimentar con APIs de cámara, streaming, WebRTC o integraciones futuras con backend.
 
 ---
 
-## 🧠 Objetivo del proyecto
+## 🚀 Tecnologías utilizadas
 
-Desarrollar un chat privado que permita:
-
-* Comunicación en tiempo real
-* Mostrar estado en línea / offline
-* Enviar y recibir mensajes
-* Implementar notificaciones
-* Escalar a chats grupales y multimedia
-
-El proyecto se desarrolla **por fases** para mantener orden y buenas prácticas.
+- ⚛️ **React**
+- ⚡ **Vite**
+- 🟨 **JavaScript**
+- 🌐 **HTML**
+- 🎨 **CSS**
 
 ---
 
-## 🛠 Tecnologías utilizadas (hasta ahora)
+## 🧠 Descripción del proyecto
 
-### Backend
+Cam-APP proporciona una estructura inicial moderna para aplicaciones frontend que requieren alto rendimiento y rápida recarga durante el desarrollo.
 
-* **Java 17**
-* **Spring Boot 3**
-* **Spring Web**
-* **Spring Security** (preparado, aún no implementado)
-* **Spring Data JPA**
-* **Validation (Jakarta Validation)**
-* **H2 Database** (entorno de desarrollo)
-* **Lombok**
+Actualmente, el proyecto se enfoca en la base visual y estructural, dejando abierta la posibilidad de implementar funcionalidades como:
 
-### Frontend (planificado)
-
-* React + Vite
-* Tailwind CSS
-* WebSockets
+- Uso de cámara web
+- Captura de imágenes
+- Grabación de video
+- Streaming en tiempo real
+- Comunicación con un backend
 
 ---
 
-## 📁 Estructura actual del backend
+## 📂 Estructura del proyecto
 
-```
-src/main/java/com/chatapp/backend
-└── models
-    ├── User.java
-    ├── Chat.java
-    └── Message.java
-```
-
----
-
-## 🧩 Models implementados
-
-### 👤 User
-
-Representa a un usuario del sistema.
-
-**Campos principales:**
-
-* `id`
-* `username`
-* `email`
-* `password`
-* `profileImage`
-* `online`
-* `status`
-
-Se utiliza **Validation** para garantizar datos válidos.
-
----
-
-### 💬 Chat
-
-Representa una conversación.
-
-**Características:**
-
-* Puede ser privada o grupal
-* Relación ManyToMany con usuarios
-
-**Campos:**
-
-* `id`
-* `isGroup`
-* `participants`
-
----
-
-### ✉️ Message
-
-Representa un mensaje dentro de un chat.
-
-**Campos:**
-
-* `id`
-* `content`
-* `timestamp`
-* `seen`
-* `sender`
-* `chat`
-
-Relaciones:
-
-* ManyToOne con User
-* ManyToOne con Chat
-
----
-
-## 🔐 Validaciones implementadas
-
-Se usa **Jakarta Validation** para:
-
-* Evitar campos vacíos (`@NotBlank`)
-* Validar correos (`@Email`)
-* Garantizar integridad de datos desde el request
-
----
-
-## 🗺 Roadmap del proyecto
-
-### 🟩 Fase 1 – Backend base (ACTUAL)
-
-* [x] Crear proyecto con Spring Initializr
-* [x] Definir entidades (User, Chat, Message)
-* [ ] Crear repositorios (JPA)
-* [ ] Configurar seguridad JWT
-
-### 🟨 Fase 2 – Autenticación
-
-* Login y registro
-* JWT
-* Protección de endpoints
-
-### 🟦 Fase 3 – Tiempo real
-
-* WebSockets (STOMP)
-* Mensajes en tiempo real
-* Estado en línea / offline
-* Indicador "escribiendo…"
-
-### 🟥 Fase 4 – Funciones avanzadas
-
-* Mensajes leídos
-* Notificaciones
-* Envío de imágenes
-* Chats grupales
-
-### ⬛ Fase 5 – Despliegue
-
-* Backend en Render / Fly.io
-* Frontend en Vercel / Netlify
-
----
-
-## ▶️ Próximo paso
-
-👉 **Crear los Repositories (UserRepository, ChatRepository, MessageRepository)**
-
----
-
-## ✨ Autor
-
-Proyecto desarrollado como práctica profesional para reforzar:
-
-* Spring Boot
-* Arquitectura por capas
-* Comunicación en tiempo real
-* Integración Backend + Frontend
-
----
-
-🚀 *Proyecto en construcción, mejoras continuas por fases.*
